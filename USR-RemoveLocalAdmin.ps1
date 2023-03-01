@@ -1,1 +1,0 @@
-﻿Remove-LocalGroupMember -Group "Administrators" -Member "AzureAD\$env:USERNAME"
