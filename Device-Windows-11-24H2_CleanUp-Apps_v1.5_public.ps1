@@ -1,4 +1,4 @@
-﻿<#Windows 11 24H2 built-in app list#
+<#Windows 11 24H2 built-in app list#
 
 To list current apps (may vary based on build releases), use command "Get-AppxPackage | select Name, PackageFamilyName > C:\temp\Applist.txt"
 
@@ -183,25 +183,27 @@ Microsoft.WindowsNotepad                       Microsoft.WindowsNotepad_8wekyb3d
 
 #Start logging
 Start-Transcript -Path "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\Device_CleanUpApps_v1.5.log"
-Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*Zune*"} | Remove-AppxPackage -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AppsRemoval-Zune.log" -ErrorAction SilentlyContinue
-Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*Xbox*"} | Remove-AppxPackage -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AppsRemoval-Xbox.log" -ErrorAction SilentlyContinue
-Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*Bing*"} | Remove-AppxPackage -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AppsRemoval-Bing.log" -ErrorAction SilentlyContinue
-Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*Game*"} | Remove-AppxPackage -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Game.log" -ErrorAction SilentlyContinue
-Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*MicrosoftTeams*"} | Remove-AppxPackage -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AppsRemoval-Teams.log" -ErrorAction SilentlyContinue
-Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*windowscommunicationsapps*"} | Remove-AppxPackage  -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AppsRemoval-Mail.log" -ErrorAction SilentlyContinue
-Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*Clipchamp*"} | Remove-AppxPackage -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AppsRemoval-Clipchamp.log" -ErrorAction SilentlyContinue
-Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*WindowsMaps*"} | Remove-AppxPackage -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AppsRemoval-Maps.log" -ErrorAction SilentlyContinue
-Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*OfficeHub*"} | Remove-AppxPackage -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AppsRemoval-OfficeHub.log" -ErrorAction SilentlyContinue
-Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*SolitaireCollection*"} | Remove-AppxPackage -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\AppsRemoval-SolitaireCollection.log" -ErrorAction SilentlyContinue
-Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*Zune*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Zune.log" -ErrorAction SilentlyContinue
-Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*Xbox*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Xbox.log" -ErrorAction SilentlyContinue
-Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*Bing*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Bing.log" -ErrorAction SilentlyContinue
-Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*Game*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Game.log" -ErrorAction SilentlyContinue
-Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*MicrosoftTeams*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Teams.log" -ErrorAction SilentlyContinue
-Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*windowscommunicationsapps*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Mail.log" -ErrorAction SilentlyContinue
-Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*Clipchamp*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Clipchamp.log" -ErrorAction SilentlyContinue
-Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*WindowsMaps*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Maps.log" -ErrorAction SilentlyContinue
-Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*OfficeHub*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-OfficeHub.log" -ErrorAction SilentlyContinue
-Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*SolitaireCollection*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-SolitaireCollection.log" -ErrorAction SilentlyContinue
+Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*Zune*"} | Remove-AppxPackage
+Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*Xbox*"} | Remove-AppxPackage
+Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*Bing*"} | Remove-AppxPackage
+Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*Game*"} | Remove-AppxPackage
+Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*MicrosoftTeams*"} | Remove-AppxPackage
+Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*windowscommunicationsapps*"} | Remove-AppxPackage
+Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*Clipchamp*"} | Remove-AppxPackage
+Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*WindowsMaps*"} | Remove-AppxPackage
+Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*OfficeHub*"} | Remove-AppxPackage
+Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*SolitaireCollection*"} | Remove-AppxPackage
+Get-AppxPackage -AllUsers | where-object {$_.packagename -like "*OutlookForWindows*"} | Remove-AppxPackage
+Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*Zune*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Zune.log"
+Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*Xbox*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Xbox.log"
+Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*Bing*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Bing.log"
+Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*Game*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Game.log"
+Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*MicrosoftTeams*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Teams.log"
+Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*windowscommunicationsapps*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Mail.log"
+Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*Clipchamp*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Clipchamp.log"
+Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*WindowsMaps*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-Maps.log"
+Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*OfficeHub*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-OfficeHub.log"
+Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*SolitaireCollection*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-SolitaireCollection.log"
+Get-AppxProvisionedPackage -online | where-object {$_.packagename -like "*OutlookForWindows*"} | Remove-AppxProvisionedPackage -online -LogLevel "3" -LogPath "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\ProvisionedAppsRemoval-OutlookForWindows.log"
 #Stop logging
 Stop-Transcript
