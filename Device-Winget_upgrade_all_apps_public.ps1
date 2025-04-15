@@ -19,20 +19,20 @@ Add-AppxProvisionedPackage -Online -PackagePath 'C:\Intune\Winget\Microsoft.Desk
 Start-Sleep -Seconds 120
 
 #Select newest winget.exe file based on folder order and set it as winget variable 
-$winget=Get-ChildItem -Path 'C:\Program Files\WindowsApps\' -Filter winget.exe -recurse | Sort-Object -Property 'FullName' -Descending | Select-Object -First 1 -ExpandProperty FullName | Tee-Object -FilePath C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\LABS_winget_upgrade_all_apps_recurrent_file-found-from.log
+$winget=Get-ChildItem -Path 'C:\Program Files\WindowsApps\' -Filter winget.exe -recurse | Sort-Object -Property 'FullName' -Descending | Select-Object -First 1 -ExpandProperty FullName | Tee-Object -FilePath C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\winget_upgrade_all_apps_recurrent_file-found-from.log
 
 #Reset source
 Start-Process -FilePath $winget -NoNewWindow -Wait -ArgumentList 'source reset --force --verbose-logs' -RedirectStandardOutput C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\LABS_winget_upgrade_all_apps_recurrent_source-reset.log
 Start-Sleep -Seconds 120
 
 #Upgrade Winget source
-Start-Process -FilePath $winget -NoNewWindow -Wait -ArgumentList 'source update' -RedirectStandardOutput C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\LABS_winget_upgrade_all_apps_recurrent_source-update.log
+Start-Process -FilePath $winget -NoNewWindow -Wait -ArgumentList 'source update' -RedirectStandardOutput C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\winget_upgrade_all_apps_recurrent_source-update.log
 Start-Sleep -Seconds 120
 
 #Upgrade desired apps
-Start-Process -FilePath $winget -NoNewWindow -Wait -ArgumentList 'upgrade Google.Chrome --silent --accept-package-agreements --accept-source-agreements' -RedirectStandardOutput C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\LABS_winget_upgrade_all_apps_recurrent_Chrome.log
-Start-Process -FilePath $winget -NoNewWindow -Wait -ArgumentList 'upgrade VideoLAN.VLC --silent --accept-package-agreements --accept-source-agreements' -RedirectStandardOutput C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\LABS_winget_upgrade_all_apps_recurrent_VLC.log
-Start-Process -FilePath $winget -NoNewWindow -Wait -ArgumentList 'upgrade 7zip.7zip --silent --accept-package-agreements --accept-source-agreements' -RedirectStandardOutput C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\LABS_winget_upgrade_all_apps_recurrent_7Zip_october.log
+Start-Process -FilePath $winget -NoNewWindow -Wait -ArgumentList 'upgrade Google.Chrome --silent --accept-package-agreements --accept-source-agreements' -RedirectStandardOutput C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\winget_upgrade_all_apps_recurrent_Chrome.log
+Start-Process -FilePath $winget -NoNewWindow -Wait -ArgumentList 'upgrade VideoLAN.VLC --silent --accept-package-agreements --accept-source-agreements' -RedirectStandardOutput C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\winget_upgrade_all_apps_recurrent_VLC.log
+Start-Process -FilePath $winget -NoNewWindow -Wait -ArgumentList 'upgrade 7zip.7zip --silent --accept-package-agreements --accept-source-agreements' -RedirectStandardOutput C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\winget_upgrade_all_apps_recurrent_7Zip_october.log
 
 #Stop logging
 Stop-Transcript
