@@ -1,3 +1,5 @@
+﻿#Created by Pavel Mirochnitchenko MVP.
+#Matches any available drivers from Microsoft Update Catalog based on Plug&Play detection. Also updates BIOS if available. Compatible with Intune Autopilot. 
 ﻿#Start logging
 Start-Transcript -Path "C:\ProgramData\Microsoft\IntuneManagementExtension\Logs\LABS_Drivers_Update_v15.log"
 #Install prerequisite
