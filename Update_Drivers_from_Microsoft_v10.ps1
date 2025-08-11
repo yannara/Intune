@@ -1,3 +1,6 @@
+﻿#Created by Pavel Mirochnitchenko MVP.
+#Matches any available drivers from Microsoft Update Catalog based on Plug&Play detection. Also updates BIOS if available. Compatible with Intune Autopilot. 
+#Start logging
 ﻿#Create folder for logs
 New-Item -ItemType directory -Path C:\Windows\debug\Drivers -ErrorAction SilentlyContinue
 #Install prerequisite
@@ -24,4 +27,5 @@ Start-Sleep -s 30
 Install-WindowsUpdate -Install -AcceptAll -UpdateType Driver -MicrosoftUpdate -ForceDownload -ForceInstall -IgnoreReboot -RecurseCycle 4 | Out-File "C:\Windows\debug\Drivers\Drivers_Install_from_Microsoft_Catalog_part8_$(Get-date -Format dd-MMM-yyyy-hh.mm.ss).log" -Force
 Start-Sleep -s 30
 #Create detection method
+
 New-Item "C:\Windows\debug\Drivers\Drivers_Updated_v10.txt" -ItemType File -Value "Drivers update completed"
