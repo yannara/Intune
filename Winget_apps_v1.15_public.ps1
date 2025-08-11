@@ -9,9 +9,14 @@ Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile C:\Intune\Winget\Micros
 Invoke-WebRequest -Uri https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx -OutFile C:\Intune\Winget\Microsoft.VCLibs.x64.14.00.Desktop.appx -ErrorAction SilentlyContinue
 Invoke-WebRequest -Uri https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/Microsoft.UI.Xaml.2.8.x64.appx -OutFile C:\Intune\Winget\Microsoft.UI.Xaml.2.8.x64.appx
 #Apply packages in System Context
-Add-AppxProvisionedPackage -Online -PackagePath 'C:\Intune\Winget\Microsoft.VCLibs.x64.14.00.Desktop.appx' -SkipLicense
-Add-AppxProvisionedPackage -Online -PackagePath 'C:\Intune\Winget\Microsoft.UI.Xaml.2.8.x64.appx' -SkipLicense
-Add-AppxProvisionedPackage -Online -PackagePath 'C:\Intune\Winget\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle' -SkipLicense
+#Add error handling
+try {
+    Add-AppxProvisionedPackage -Online -PackagePath ‘C:\Intune\Winget\Microsoft.VCLibs.x64.14.00.Desktop.appx’ -SkipLicense
+    Add-AppxProvisionedPackage -Online -PackagePath ‘C:\Intune\Winget\Microsoft.UI.Xaml.2.8.x64.appx’ -SkipLicense
+    Add-AppxProvisionedPackage -Online -PackagePath ‘C:\Intune\Winget\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle’ -SkipLicense
+} catch {
+    Write-Host “Error: Failed to add one or more provisioned packages. Error message: $($_.Exception.Message)” -ForegroundColor Red
+}
 Start-Sleep -Seconds 15
 #Select newest winget.exe fail based on folder order and set it as winget variable 
 $winget=Get-ChildItem -Path 'C:\Program Files\WindowsApps\' -Filter winget.exe -recurse | Sort-Object -Property 'FullName' -Descending | Select-Object -First 1 | %{$_.FullName} 
